@@ -4,16 +4,18 @@ import android.location.Location;
 public class Recipient
 {
     String name;
-    Location adress_destinataire;//ca on sen occupe dans la deuxieme appliacation
+    Double adress_destinataire_lattitude;//ca on sen occupe dans la deuxieme appliacation
+    Double adress_destinataire_longitude;
     String phone;
     String mail;
 
     public Recipient() {
     }
 
-    public Recipient(String name, Location adress_destinataire, String phone, String mail) {
+    public Recipient(String name, Double adress_destinataire_lattitude,Double adress_destinataire_longitude, String phone, String mail) {
         this.name = name;
-        this.adress_destinataire = adress_destinataire;
+        this.adress_destinataire_lattitude = adress_destinataire_lattitude;
+        this.adress_destinataire_longitude = adress_destinataire_longitude;
         this.phone = phone;
         this.mail = mail;
     }
@@ -26,12 +28,20 @@ public class Recipient
         this.name = name;
     }
 
-    public Location getAdress_destinataire() {
-        return adress_destinataire;
+    public Double getAdress_destinataire_lattitude() {
+        return adress_destinataire_lattitude;
     }
 
-    public void setAdress_destinataire(Location adress_destinataire) {
-        this.adress_destinataire = adress_destinataire;
+    public void setAdress_destinataire_lattitude(Double adress_destinataire_lattitude) {
+        this.adress_destinataire_lattitude = adress_destinataire_lattitude;
+    }
+
+    public Double getAdress_destinataire_longitude() {
+        return adress_destinataire_longitude;
+    }
+
+    public void setAdress_destinataire_longitude(Double adress_destinataire_longitude) {
+        this.adress_destinataire_longitude = adress_destinataire_longitude;
     }
 
     public String getPhone() {

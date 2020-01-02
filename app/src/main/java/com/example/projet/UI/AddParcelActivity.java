@@ -210,7 +210,7 @@ public Date stringToDate(String mystring)
         TextView phone = (TextView) findViewById(R.id.Telephone);
         TextView mail = (TextView) findViewById(R.id.Mail);
         TextView postman = (TextView) findViewById(R.id.PostMan);
-        return new Recipient( Destinataire.getText().toString(), location, phone.getText().toString(),  mail.getText().toString());
+        return new Recipient( Destinataire.getText().toString(), location.getLatitude(),location.getLongitude(), phone.getText().toString(),  mail.getText().toString());
 
     }
     //endregion

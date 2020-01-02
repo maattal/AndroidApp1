@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 
 import java.util.Date;
 
+// TODO (2): Toute cette class sert à rien et peux etre enlever
 public class ParcelFromFirebase
 {
 
@@ -20,7 +21,33 @@ public class ParcelFromFirebase
     public String deliveryName;
    public Recipient recipient;
     public String sendParcelDate;
-    public String id;
+
+    public ParcelFromFirebase() {
+    }
+
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
+
+    public Recipient getRecipient() {
+        return recipient;
+    }
+
+    public void setRecipient(Recipient recipient) {
+        this.recipient = recipient;
+    }
 
     public String getType_havila() {
         return type_havila;
@@ -82,13 +109,6 @@ public double getLongitude (Double longitude){return  longitude;}
         this.sendParcelDate = sendParcelDate;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String  id) {
-        this.id = id;
-    }
 
 
 

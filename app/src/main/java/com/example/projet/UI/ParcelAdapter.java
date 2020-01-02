@@ -37,7 +37,9 @@ public class ParcelAdapter extends RecyclerView.Adapter<ParcelAdapter.ParcelView
             holder.textViewStatus.setText("status: " + parcel.getParcelStatus().name().toString());
             holder.textViewType.setText("type: " + parcel.getType_havila().name().toString());
             holder.textViewDelivery.setText("delivery Name: " + parcel.getDeliveryName().toString());
-            holder.textViewDate.setText("date: " + parcel.getSendParcelDate().toString());
+            // TODO (7): Tans que le textView de la date n'est pas initialiser en bas sa ne
+            //  marche pas de set le text
+//            holder.textViewDate.setText("date: " + parcel.getSendParcelDate().toString());
         }
 
         @Override
@@ -51,8 +53,9 @@ public class ParcelAdapter extends RecyclerView.Adapter<ParcelAdapter.ParcelView
                 super(itemView);
                 textViewStatus = itemView.findViewById(R.id.text_Rview_status);
                 textViewDelivery = itemView.findViewById(R.id.text_Rview_type);
-                //textViewDate = itemView.findViewById(R.id.Date);
-                textViewAdress = itemView.findViewById(R.id.text_Rview_Adress);
+                textViewDate = itemView.findViewById(R.id.Date);
+                // TODO (6): Il faut remettre le textView de la date ici
+//                textViewAdress = itemView.findViewById(R.id.text_Rview_Adress);
                  textViewType = itemView.findViewById(R.id.text_Rview_type);
             }
         }

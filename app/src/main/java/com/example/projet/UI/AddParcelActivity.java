@@ -185,7 +185,8 @@ static Location locationamettredansparcel;
         Recipient rec=getRecipient();
         TextView date_sending = findViewById(R.id.Date);
         String help=date_sending.toString();
-        return new Parcel(type_havila, weight,parcelStatus , is_Fragileparcel, location, postman.getText().toString(),getRecipient(),stringToDate(help));
+        // TODO (5): J'ai changer ici de façon à prendre que la longitude et la lattitude de la location
+        return new Parcel(type_havila, weight,parcelStatus , is_Fragileparcel, location.getLongitude(), location.getLatitude(), postman.getText().toString(),getRecipient(),stringToDate(help));
     }
 public Date stringToDate(String mystring)
 {

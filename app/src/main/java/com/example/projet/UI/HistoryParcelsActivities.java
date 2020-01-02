@@ -1,13 +1,12 @@
 package com.example.projet.UI;
+
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
 import com.example.projet.Entities.Parcel;
-import com.example.projet.Entities.ParcelFromFirebase;
 import com.example.projet.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -58,8 +57,13 @@ public class HistoryParcelsActivities extends AppCompatActivity {
             parcelsList.clear();
             if (dataSnapshot.exists()) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    ParcelFromFirebase parcel_db = snapshot.getValue(ParcelFromFirebase.class);//ca bloque la
-                    parcelsList.add(new Parcel(parcel_db));
+                    // TODO (1): Tu peux pas parcer un objet firebase a un autre objet qui est different
+                    //  Tu parser un object Parcel à un objet ParcelFromFirebase
+                    //  J'ai donc tous simplement changer ParcelFromFirebase a Parcel
+                    //  Vous pouvez donc enelever toute la classe ParcelFromFirebase qui sert du coup a rien
+                    Parcel parcel_db;
+                    parcel_db = (Parcel) snapshot.getValue(Parcel.class);
+                    parcelsList.add(parcel_db);
                 }
                 mAdapter.notifyDataSetChanged();
             }

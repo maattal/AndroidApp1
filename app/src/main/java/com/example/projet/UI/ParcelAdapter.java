@@ -1,6 +1,7 @@
 package com.example.projet.UI;
 
 import android.content.Context;
+import android.location.Location;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,8 +13,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.projet.Entities.Parcel;
 import com.example.projet.R;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
+//lien entre recycle viewv et la liste de donnee
 public class ParcelAdapter extends RecyclerView.Adapter<ParcelAdapter.ParcelViewHolder>{
         private Context myCtx;
          List<Parcel> parcelList;
@@ -23,6 +27,7 @@ public class ParcelAdapter extends RecyclerView.Adapter<ParcelAdapter.ParcelView
             this.parcelList = parcelList;
         }
 
+        //unw view holder cest ce qui permet d'afficher correctement un element de la database dans la ligne
         @NonNull
         @Override
         public ParcelViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -35,12 +40,23 @@ public class ParcelAdapter extends RecyclerView.Adapter<ParcelAdapter.ParcelView
         public void onBindViewHolder(@NonNull ParcelAdapter.ParcelViewHolder holder, int position) {
             Parcel parcel = parcelList.get(position);
             holder.textViewStatus.setText("status: " + parcel.getParcelStatus().name().toString());
-            holder.textViewType.setText("type: " + parcel.getType_havila().name().toString());
-            holder.textViewDelivery.setText("delivery Name: " + parcel.getDeliveryName().toString());
-            // TODO (7): Tans que le textView de la date n'est pas initialiser en bas sa ne
-            //  marche pas de set le text
-//            holder.textViewDate.setText("date: " + parcel.getSendParcelDate().toString());
+            if(parcel.isIs_Fragile()==true) {
+                holder.textViewFragile.setText("warning, this packet is fragile");
+            }
+            else
+        {
+            holder.textViewFragile.setText("this packet dosn't have a fragile contenu");
         }
+            holder.textViewType.setText("type: " + parcel.getType_havila().name().toString());
+            holder.textViewDelivery.setText("Expeditor name: " + parcel.getRecipient().getName().toString());
+            holder.textViewDate.setText("date: " + dateToString(parcel.getSendParcelDate()));
+            holder.textViewAdress.setText("adress: "+parcel.getParcel_latitude()+" "+parcel.getParcel_longitude());
+        }
+
+private String dateToString(Date mydate)
+{
+    return new SimpleDateFormat("dd-MM-yyyy").format(mydate);
+}
 
         @Override
         public int getItemCount() {
@@ -48,15 +64,15 @@ public class ParcelAdapter extends RecyclerView.Adapter<ParcelAdapter.ParcelView
         }
 
         class ParcelViewHolder extends RecyclerView.ViewHolder {
-            TextView textViewAdress, textViewDelivery, textViewDate, textViewStatus,textViewType;
+            TextView textViewAdress, textViewDelivery, textViewDate, textViewStatus,textViewType,textViewFragile;
             public ParcelViewHolder(@NonNull View itemView) {
                 super(itemView);
                 textViewStatus = itemView.findViewById(R.id.text_Rview_status);
                 textViewDelivery = itemView.findViewById(R.id.text_Rview_type);
-                textViewDate = itemView.findViewById(R.id.Date);
-                // TODO (6): Il faut remettre le textView de la date ici
-//                textViewAdress = itemView.findViewById(R.id.text_Rview_Adress);
+                textViewDate = itemView.findViewById(R.id.text_Rview_Date);
+               textViewAdress = itemView.findViewById(R.id.text_Rview_Adress);
                  textViewType = itemView.findViewById(R.id.text_Rview_type);
+                 textViewFragile=itemView.findViewById(R.id.text_Rview_fragile);
             }
         }
     }

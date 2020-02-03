@@ -4,16 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/ecran6"
     tools:context=".UI.HistoryParcelsActivities">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp">
+        tools:layout_editor_absoluteY="1sp">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/parcelsRecycleView"
+            android:id="@+id/parcels_recycleView"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </RelativeLayout>

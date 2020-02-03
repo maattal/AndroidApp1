@@ -1,7 +1,7 @@
 package com.example.projet.Entities;
 
+/* class in charge of all the enums */
 public class Enums {
-    //mettre la les enums
     public enum Status_Parcel {
         SEND,
         PICKING,

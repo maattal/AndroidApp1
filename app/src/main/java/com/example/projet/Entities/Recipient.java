@@ -1,15 +1,17 @@
 package com.example.projet.Entities;
-import android.location.Location;
+
 
 public class Recipient
 {
     String name;
-    Double adress_destinataire_lattitude;//ca on sen occupe dans la deuxieme appliacation
+    Double adress_destinataire_lattitude;
     Double adress_destinataire_longitude;
     String phone;
     String mail;
 
-    public Recipient() {
+    public Recipient()
+    {
+
     }
 
     public Recipient(String name, Double adress_destinataire_lattitude,Double adress_destinataire_longitude, String phone, String mail) {
@@ -29,16 +31,26 @@ public class Recipient
     }
 
     public Double getAdress_destinataire_lattitude() {
-        return adress_destinataire_lattitude;
-    }
+
+    return adress_destinataire_lattitude;
+
+}
+
+
 
     public void setAdress_destinataire_lattitude(Double adress_destinataire_lattitude) {
+
         this.adress_destinataire_lattitude = adress_destinataire_lattitude;
+
     }
+
+
 
     public Double getAdress_destinataire_longitude() {
         return adress_destinataire_longitude;
     }
+
+
 
     public void setAdress_destinataire_longitude(Double adress_destinataire_longitude) {
         this.adress_destinataire_longitude = adress_destinataire_longitude;
